@@ -2,7 +2,7 @@ jQuery(document).ready( function(){
 
 	jQuery("#range-submit").on("click", function( e ){
 		e.preventDefault();
-		console.log('got here');
+
 		// get range
 		var rangestart = String( jQuery("select#range-start-year").val() ) + 
 			String( jQuery("select#range-start-month").val() ) +
@@ -15,7 +15,7 @@ console.log("rangeend: " + rangeend);
 		var entries = new Miso.Dataset({
 			url: "harvest-range-json.php?rangestart=" + rangestart + "&rangeend=" + rangeend
 		});
-		console.dir(entries);
+
 		// fetch data
 		entries.fetch().then(function(){
 	
