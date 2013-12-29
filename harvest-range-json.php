@@ -1,12 +1,18 @@
 <?php
 
+$rangestart = $_REQUEST["rangestart"];
+$rangeend   = $_REQUEST["rangeend"];
+
+//echo "rangestart: " . $rangestart . "<br/>";
+//echo "rangeend: " . $rangeend . "<br/>";
+
 require_once(dirname(__FILE__) . '/config.php');
 require_once(dirname(__FILE__) . '/HarvestAPI.php');
  
 /* Register Auto Loader */
 spl_autoload_register(array('HarvestAPI', 'autoload'));
 
-$range = new Harvest_Range( "20131216", "20131222" );
+$range = new Harvest_Range( $rangestart, $rangeend );
 
 $api = new HarvestAPI();
 $api->setUser( USER_EMAIL );
